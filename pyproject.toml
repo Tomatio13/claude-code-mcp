@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-code-mcp"
+version = "0.1.0"
+description = "An MCP server to wrap the Claude Codex for use with Claude Code"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=0.6.5",
+    "mcp>=1.1.2"
+]
+
+[project.scripts]
+claude_server = "claude_server:main"
+
+[tool.uvicorn]
+app = "claude_server:app"
+host = "0.0.0.0"
+port = 4030
+log-level = "info"
